@@ -33,6 +33,8 @@ public class Main2Activity extends AppCompatActivity {
         listView=findViewById(R.id.lvList);
         Intent intent=getIntent();
         String url=intent.getStringExtra("url");
+        String name=intent.getStringExtra("name");
+        setTitle(name);
 
         try {
             Call<Feed> caller= RetrofitClient.api().getNewsByCategory(url);

@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void addControl(){
         lv=findViewById(R.id.lv);
-        String [] list=new String[]{"Trang chủ","Thời sự","Thế giới","Kinh doanh","Start up","Giải trí",
+        final String [] list=new String[]{"Trang chủ","Thời sự","Thế giới","Kinh doanh","Start up","Giải trí",
         "Thể thao","Pháp luật","Giáo dục","Sức khỏe","Gia đình","Du lịch","Khoa học",
         "Số hóa","Xe","Cộng đồng","Tâm sự","Cười"};
         adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent=new Intent(MainActivity.this,Main2Activity.class);
                 intent.putExtra("url",links.get(i));
+                intent.putExtra("name",list[i]);
                 startActivity(intent);
 
             }
